@@ -11,11 +11,11 @@ module ApplicationHelper
   end
 
   # Replace devise's alert name to bootstrap's
-  def to_bootstrap_flash(name)
-    case name
+  def bootstrap_class_for(flash_name)
+    case flash_name
     when 'notice' then 'success'
     when 'alert'  then 'danger'
-    else name
+    else flash_name
     end
   end
 end
