@@ -2,7 +2,7 @@ class Api::V1::SessionsController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   def create
-    user_email = params[:sessions][:email]
+    user_email = params[:session][:email]
     user_password = params[:session][:password]
 
     user = user_email.present? && User.find_by(email: user_email)
