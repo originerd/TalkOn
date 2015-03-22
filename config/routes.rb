@@ -1,3 +1,5 @@
+require 'api_constraints'
+
 Rails.application.routes.draw do
 
   root                'static_pages#home'
@@ -8,7 +10,9 @@ Rails.application.routes.draw do
   resources :users, only: [:index, :show]
   resources :talk_concerts
 
-  namespace :api, defaults: { format: :json },
-                              constraints: { subdomain: 'api' }, path: '/' do
+  namespace :api, defaults: { format: :json } do
+    namespace :v1 do
+      resources :users, only: [:index, :show, :create, :update, :destroy]
+    end                                
   end
 end
