@@ -11,19 +11,19 @@ class User < ActiveRecord::Base
   validates :name, presence: true, length: { maximum: 50 }
   validates :auth_token, uniqueness: true
 
-  before_create :generate_authentication_token!
+  before_validation(on: :create) do
+    generate_authentication_token!
+  end
 
   after_create :set_default_role
 
-  private
+  # before validation
 
-  # before create
-
-  # generate authentication token for authorize of api
+  # generate authentication token for authorize of api on create
   def generate_authentication_token!
     begin
       self.auth_token = Devise.friendly_token
-    end while self.class.exists?(auth_token: auth_token)
+    end while self.class.exists?(auth_token: self.auth_token)
   end
 
   # after create
