@@ -1,0 +1,23 @@
+<% provide(:title, "All talk concerts") %>
+<h1>All talk concerts</h1>
+
+<%= will_paginate %>
+
+<table class="table table-striped">
+  <tbody>
+    <tr>
+      <td>강연자</td>
+      <td>제목</td>
+      <td>인원제한</td>
+      <td>작성시간</td>
+      <td>장소</td>
+    </tr>
+    <%= render @talk_concerts %>
+  </tbody>
+</table>
+
+<%= will_paginate %>
+
+<% if user_signed_in? %>
+  <%= link_to 'New talk concert', new_talk_concert_path, class: "btn btn-primary" %>
+<% end %>

@@ -1,0 +1,7 @@
+<tr>
+  <td><%= talk_concert.user.name %></td>
+  <td><%= link_to talk_concert.title, talk_concert %></td>
+  <td><%= talk_concert.people_limit %></td>
+  <td><%= time_ago_in_words(talk_concert.created_at) %> ago.</td>
+  <td><%= talk_concert.location %></td>
+</tr>

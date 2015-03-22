@@ -1,0 +1,44 @@
+<% provide(:title, @talk_concert.title) %>
+<h1><%= @talk_concert.title %></h1>
+<table class="table table-striped">
+  <tbody>
+    <tr>
+      <td>강연자</td>
+      <td><%= @talk_concert.user.name %></td>
+    </tr>
+    <tr>
+      <td>시작시간</td>
+      <td><%= @talk_concert.start_time %></td>
+    </tr>
+    <tr>
+      <td>종료시간</td>
+      <td><%= @talk_concert.end_time %></td>
+    </tr>
+    <tr>
+      <td>장소</td>
+      <td><%= @talk_concert.location %></td>
+    </tr>
+    <tr>
+      <td>인원제한</td>
+      <td><%= @talk_concert.people_limit %></td>
+    </tr>
+    <tr>
+      <td>내용</td>
+      <td><%= @talk_concert.content %></td>
+    </tr>
+    <tr>
+      <td>참여시작시간</td>
+      <td><%= @talk_concert.enroll_start_time %></td>
+    </tr>
+    <tr>
+      <td>참여종료시간</td>
+      <td><%= @talk_concert.enroll_end_time %></td>
+    </tr>
+  </tbody>
+</table>
+
+<%= link_to '목록', talk_concerts_path, class: "btn btn-primary" %>
+<% if user_signed_in? && current_user.can_update?(@talk_concert) %>
+  <%= link_to '수정', edit_talk_concert_path(@talk_concert), class: "btn btn-primary" %>
+  <%= link_to '삭제', @talk_concert, method: :delete, data: { confirm: '정말 삭제하시겠습니까?' }, class: "btn btn-danger" %>
+<% end %>

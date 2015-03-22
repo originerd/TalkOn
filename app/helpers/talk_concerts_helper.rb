@@ -1,0 +1,2 @@
+module TalkConcertsHelper
+end

@@ -12,9 +12,14 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
+# for authentication
 gem 'devise'
 gem 'rolify'
 gem 'authority'
+
+# for datepicker
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.7.14'
 
 group :development, :test do
   gem 'guard-minitest',           '2.3.1'

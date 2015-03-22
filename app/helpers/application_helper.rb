@@ -18,4 +18,9 @@ module ApplicationHelper
     else flash_name
     end
   end
+
+  # User role
+  def user_roles(user)
+    user.roles.map(&:name).join(',').titleize
+  end
 end

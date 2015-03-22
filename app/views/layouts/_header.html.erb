@@ -13,6 +13,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Home",   root_path %></li>
         <li><%= link_to "Help",   help_path %></li>
+        <li><%= link_to "Talk concerts", talk_concerts_path %></li>
         <% if user_signed_in? %>
           <li><%= link_to "Users", users_path %></li>
           <li class="dropdown">
@@ -20,6 +21,7 @@
               Account <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
+              <li><%= link_to "Roles : " + user_roles(current_user), '#' %></li>
               <li><%= link_to "Settings", edit_user_registration_path %></li>
               <li class="divider"></li>
               <li>

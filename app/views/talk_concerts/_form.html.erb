@@ -1,0 +1,65 @@
+<%= form_for(@talk_concert) do |f| %>
+  <% if @talk_concert.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@talk_concert.errors.count, "error") %> prohibited this calendar from being saved:</h2>
+
+      <ul>
+      <% @talk_concert.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class: "field">
+    <%= f.label :title, "제목" %><br>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+  <div class: "field">
+    <%= f.label :start_time, "시작시간" %><br>
+    <div class="input-group date datetimepicker">
+      <%= f.text_field :start_time, class: 'form-control', data: { date_format: "YYYY/MM/DD hh:mm A" } %>
+      <div id="datetimepicker"></div>
+      <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+    </div>
+  </div>
+  <div class: "field">
+    <%= f.label :end_time, "종료시간" %><br>
+    <div class="input-group date datetimepicker">
+      <%= f.text_field :end_time, class: 'form-control', data: { date_format: "YYYY/MM/DD hh:mm A" } %>
+      <div id="datetimepicker"></div>
+      <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+    </div>
+  </div>
+  <div class: "field">
+    <%= f.label :location, "장소" %><br>
+    <%= f.text_field :location, class: "form-control" %>
+  </div>
+  <div class: "field">
+    <%= f.label :people_limit, "인원제한" %><br>
+    <%= f.number_field :people_limit, class: "form-control" %>
+  </div>
+  <div class: "field">
+    <%= f.label :content, "내용" %><br>
+    <%= f.text_area :content, class: "form-control" %>
+  </div>
+  <div class: "field">
+    <%= f.label :enroll_start_time, "참여시작시간" %><br>
+    <div class="input-group date datetimepicker">
+      <%= f.text_field :enroll_start_time, class: 'form-control', data: { date_format: "YYYY/MM/DD hh:mm A" } %>
+      <div id="datetimepicker"></div>
+      <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+    </div>
+  </div>
+  <div class: "field">
+    <%= f.label :enroll_end_time, "참여종료시간" %><br>
+    <div class="input-group date datetimepicker">
+      <%= f.text_field :enroll_end_time, class: 'form-control', data: { date_format: "YYYY/MM/DD hh:mm A" } %>
+      <div id="datetimepicker"></div>
+      <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+    </div>
+  </div>
+  <div class: "actions">
+    <%= f.submit "저장", class: "btn btn-lg btn-primary btn-block" %>
+  </div>
+<% end %>
