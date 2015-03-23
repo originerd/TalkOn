@@ -11,7 +11,9 @@ class User < ActiveRecord::Base
   validates :name, presence: true, length: { maximum: 50 }
   validates :auth_token, uniqueness: true
 
-  before_validation :generate_authentication_token!
+  before_validation(on: :create) do
+    generate_authentication_token!
+  end
 
   after_create :set_default_role
 
