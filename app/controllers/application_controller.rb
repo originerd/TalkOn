@@ -3,10 +3,12 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  # For api authentication
   include Authenticable
 
   before_filter :configure_permitted_parameters, if: :devise_controller?
 
+  # when authority error happened
   def authority_forbidden(error)
     Authority.logger.warn(error.message)
     redirect_to request.referrer.presence || root_path, :alert => 'You are not authorized to complete that action.'

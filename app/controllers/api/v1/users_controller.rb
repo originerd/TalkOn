@@ -23,7 +23,7 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def update
-    @user = current_user
+    @user = current_user_with_token
 
     if @user.update_attributes(user_params)
       render json: { result: "success", user: @user }
@@ -33,7 +33,7 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def destroy
-    current_user.destroy
+    current_user_with_token.destroy
 
     render json: { result: "success" }
   end
