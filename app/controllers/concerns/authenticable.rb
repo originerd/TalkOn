@@ -6,7 +6,7 @@ module Authenticable
   end
 
   def authenticate_with_token!
-    unless current_user.present?
+    unless current_user_with_token.present?
       render json: { result: "fail", errors: ["Not authenticated"] }
     end
   end
