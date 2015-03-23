@@ -1,5 +1,6 @@
 class Api::V1::UsersController < ApplicationController
   skip_before_filter :verify_authenticity_token
+  before_action :authenticate_with_token!, only: [:update, :destroy]
   
   def index
     @users = User.select(:id, :email, :name).all
@@ -22,7 +23,7 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(params[:id])
+    @user = current_user
 
     if @user.update_attributes(user_params)
       render json: { result: "success", user: @user }
@@ -32,7 +33,7 @@ class Api::V1::UsersController < ApplicationController
   end
 
   def destroy
-    User.find(params[:id]).destroy
+    current_user.destroy
 
     render json: { result: "success" }
   end
