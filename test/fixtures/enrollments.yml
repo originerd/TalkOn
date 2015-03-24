@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  talk_concert_id: 
+  user_id: 
+
+two:
+  talk_concert_id: 
+  user_id: 

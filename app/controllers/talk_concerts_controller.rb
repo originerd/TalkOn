@@ -7,6 +7,8 @@ class TalkConcertsController < ApplicationController
 
   def show
     @talk_concert = TalkConcert.find(params[:id])
+    @current_user_enrollment = @talk_concert.enrollments.find_by(user: current_user)
+    @enrollments = @talk_concert.enrollments
   end
 
   def new

@@ -255,3 +255,24 @@ span.picture {
     border: 0;
   }
 }
+
+/* enrollments */
+
+.enrollment {
+  float: left;
+  width: 90px;
+  padding: 10px;
+  margin: 10px;
+  background-color: $gray-lighter;
+  border-radius: 10px;
+  .gravatar {
+    margin-bottom: 10px;
+  }
+  .enrolled-user {
+    width: 100%;
+    line-height: 1em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}

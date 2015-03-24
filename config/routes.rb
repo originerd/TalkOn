@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   get    'contact' => 'static_pages#contact'
   devise_for :users
   resources :users, only: [:index, :show]
-  resources :talk_concerts
+  resources :talk_concerts do
+    resource :enrollments, only: [:create, :destroy]
+  end
 
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
