@@ -1,4 +1,4 @@
-class EnrollmentsController < ApplicationController
+class Api::V1::EnrollmentsController < ApplicationController
   skip_before_filter :verify_authenticity_token
   before_action :authenticate_with_token!
 
