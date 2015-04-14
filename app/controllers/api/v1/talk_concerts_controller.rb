@@ -9,6 +9,7 @@ class TalkConcertsController < ApplicationController
 
   def show
     @talk_concert = TalkConcert.find(params[:id])
+    
     if @talk_concert
       render json: { result: "success", talk_concert: @talk_concert }
     else
@@ -38,6 +39,7 @@ class TalkConcertsController < ApplicationController
       end
     else
       render json: { result: "fail" }
+    end
   end
 
   def destroy
