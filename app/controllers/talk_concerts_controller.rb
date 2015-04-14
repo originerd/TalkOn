@@ -57,6 +57,13 @@ class TalkConcertsController < ApplicationController
     redirect_to talk_concerts_url
   end
 
+  def room
+    @talk_concert = TalkConcert.find(params[:id])
+    @current_user = current_user
+    @current_user_voice = @talk_concert.voices.find_by(user: current_user)
+    @voices = @talk_concert.voices
+  end
+
   private
 
   def talk_concert_params

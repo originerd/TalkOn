@@ -1,0 +1,25 @@
+<% if current_user == @talk_concert.user %>
+  <div class="container">
+    <%= render @voices %>
+  </div>
+<% elsif user_signed_in? %>
+  <% if @current_user_voice.present? %>
+    <%= link_to '발언권 철회', talk_concert_voices_path(@talk_concert), method: :delete, class: "btn btn-danger" %>
+    <audio id="localAudio"></audio>
+    <audio id="remoteAudio"></audio>
+    <script type="text/javascript">
+      conn = new PlayRTC({
+        localVideoTarget: "localAudio",
+        remoteVideoTarget: "remoteAudio",
+        userMedia: {
+          video: false,
+          audio: true
+        }
+      });
+      
+      conn.createChannel();
+    </script>
+  <% else %>
+    <%= link_to '발언권 신청', talk_concert_voices_path(@talk_concert), method: :create, class: "btn btn-primary" %>
+  <% end %>
+<% end %>

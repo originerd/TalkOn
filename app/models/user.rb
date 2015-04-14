@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
 
   has_many :talk_concerts, dependent: :destroy
   has_many :enrollments, dependent: :destroy
+  has_many :voices, dependent: :destroy
   
   validates :name, presence: true, length: { maximum: 50 }
   validates :auth_token, uniqueness: true

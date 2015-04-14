@@ -9,14 +9,21 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users, only: [:index, :show]
   resources :talk_concerts do
+    member do
+      get :room
+    end
     resource :enrollments, only: [:create, :destroy]
+    resource :voices,      only: [:create, :destroy]
   end
 
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
-      resource  :users,    only: [:index, :create, :update, :destroy]
-      resources :users,    only: :show
-      resource  :sessions, only: [:create, :destroy]
+      resource  :users,         only: [:index, :create, :update, :destroy]
+      resources :users,         only: :show
+      resources :talk_concerts, only: [:index, :create, :update, :destroy]
+      resource  :sessions,      only: [:create, :destroy]
+      resource  :enrollments,   only: [:create, :destroy]
+      resource  :voices,        only: [:create, :destroy]
     end                                
   end
 end
