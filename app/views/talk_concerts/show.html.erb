@@ -49,7 +49,9 @@
 <% end %>
 
 <% if user_signed_in? %>
-  <% if @current_user_enrollment.present? %>
+  <% if current_user == @talk_concert.user %>
+    <%= link_to '방 입장', room_talk_concert_path(@talk_concert), class: "btn btn-success" %>
+  <% elsif @current_user_enrollment.present? %>
     <%= link_to '참여 철회', talk_concert_enrollments_path(@talk_concert), method: :destroy, class: "btn btn-danger" %>
 
     <%= link_to '방 입장', room_talk_concert_path(@talk_concert), class: "btn btn-success" %>
