@@ -21,7 +21,7 @@ class TalkConcertsController < ApplicationController
     @talk_concert.user = current_user_with_token
 
     if @talk_concert.save
-      render json: { result: "success", @talk_concert }
+      render json: { result: "success", talk_concert: @talk_concert }
     else
       render json: { result: "fail", errors: @talk_concert.errors }
     end
@@ -29,7 +29,6 @@ class TalkConcertsController < ApplicationController
 
   def update
     @talk_concert = TalkConcert.find(params[:id])
-
 
     if current_user_with_token == @talk_concert.user
       if @talk_concert.update_attributes(talk_concert_params)
