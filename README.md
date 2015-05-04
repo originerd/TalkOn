@@ -160,7 +160,7 @@ This app is an web service for Talk on.
 			* URL
 				* http://talkon.originerd.com/api/v1/talk_concerts
 		* Response
-			{"result": "success",
+			* {"result": "success",
 "talk_concerts": [{"id": 100,"user_id": 100,"start_time": "2015-04-15T01:04:24.358+09:00","end_time": "2015-04-15T01:04:24.358+09:00","location": "Example_place1","people_limit": 100,"content": "EXAMPLE1","enroll_start_time": "2015-04-15T01:04:24.358+09:00","enroll_end_time": "2015-04-15T01:04:24.358+09:00","created_at": "2015-04-15T01:04:24.358+09:00","updated_at": "2015-04-15T01:04:24.358+09:00","title": "EXAMPLE1"
 },{"id": 101,"user_id": 101,"start_time": "2015-04-15T01:04:24.358+09:00","end_time": "2015-04-15T01:04:24.358+09:00","location": "Example_place2","people_limit": 100,"content": "EXAMPLE2","enroll_start_time": "2015-04-15T01:04:24.358+09:00","enroll_end_time": "2015-04-15T01:04:24.358+09:00","created_at": "2015-04-15T01:04:24.358+09:00","updated_at": "2015-04-15T01:04:24.358+09:00","title": "EXAMPLE2"
 },{"id": 102,"user_id": 102,"start_time": "2015-04-15T01:04:24.358+09:00","end_time": "2015-04-15T01:04:24.358+09:00","location": "Example_place3","people_limit": 100,"content": "EXAMPLE3","enroll_start_time": "2015-04-15T01:04:24.358+09:00","enroll_end_time": "2015-04-15T01:04:24.358+09:00","created_at": "2015-04-15T01:04:24.358+09:00","updated_at": "2015-04-15T01:04:24.358+09:00","title": "EXAMPLE3"
