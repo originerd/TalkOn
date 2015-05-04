@@ -1,6 +1,6 @@
 class Api::V1::TalkConcertsController < ApplicationController
   skip_before_filter :verify_authenticity_token
-  before_action :authenticate_with_token!, only: [ :index, :show ]
+  before_action :authenticate_with_token!, except: [ :index, :show ]
 
   def index
     @talk_concerts = TalkConcert.paginate(page: params[:page])

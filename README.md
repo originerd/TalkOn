@@ -144,3 +144,47 @@ This app is an web service for Talk on.
 					* AUTH_TOKEN
 		* Response
 			* {"result": "success"}
+
+### Talk concert
+1. Read all talk concerts
+	* Method
+		* GET
+	* URL
+		* http://talkon.originerd.com/api/v1/talk_concerts
+	* Headers
+		* None
+	* Parameters
+		* None
+	* Example
+		* Request
+			* URL
+				* http://talkon.originerd.com/api/v1/talk_concerts
+		* Response
+			
+1. Create talk concert
+	* Method
+		* PUT
+	* URL
+		* http://talkon.originerd.com/api/v1/users
+	* Headers
+		* Content-Type
+		* Authorization
+	* Parameters
+		* user
+			* email
+			* name
+			* password
+			* password_confirmation
+	* Example
+		* Request
+			* URL
+				* http://talkon.originerd.com/api/v1/users
+			* Headers
+				* Content-Type
+					* application/json
+				* Authorization
+					* AUTH_TOKEN
+			* Parameter Body
+				* {"user": {"email": "example@email.com", "name": "Name", "password": "password", "password_confirmation": "password"}}
+		* Response
+			* {"result": "success","user": {"id": 5,"email": "example@email.com","created_at": 2015-05-04T08:27:54.975+09:00","updated_at": 2015-05-04T08:27:54.975+09:00","name": "Name","auth_token": AUTH_TOKEN}
