@@ -4,6 +4,7 @@
   </div>
 <% elsif user_signed_in? %>
   <% if @current_user_voice.present? %>
+    <script src="http://www.playrtc.com/sdk/js/1.0.6/playrtc.min.js"></script>
     <%= link_to '발언권 철회', talk_concert_voices_path(@talk_concert), method: :delete, class: "btn btn-danger" %>
     <audio id="localAudio"></audio>
     <audio id="remoteAudio"></audio>
