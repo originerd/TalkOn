@@ -1,6 +1,40 @@
 <% if current_user == @talk_concert.user %>
   <div class="container">
+    <h2>발언권 신청자</h2>
     <%= render @voices %>
+    <script src="http://www.playrtc.com/sdk/js/1.0.6/playrtc.min.js"></script>
+    <%= link_to '발언권 철회', talk_concert_voices_path(@talk_concert), method: :delete, class: "btn btn-danger" %>
+    <div>
+      <input type="text" id="channelId" placeholder="ChannelId를 입력하세요." value="">
+      <button id="connectChannel">채널 입장</button>
+      <button id="createChannel">채널 생성 및 입장</button>
+    </div>
+    <audio id="localAudio"></audio>
+    <audio id="remoteAudio"></audio>
+    <script type="text/javascript">
+      conn = new PlayRTC({
+        localVideoTarget: "localAudio",
+        remoteVideoTarget: "remoteAudio",
+        userMedia: {
+          video: false,
+          audio: true
+        }
+      });
+      
+      conn.on("connectChannel", function(channelId){
+        document.getElementById("channelId").value = channelId;
+      });
+      document.getElementById("createChannel").onclick = function(e){
+        conn.createChannel();
+        return false;
+      };
+      document.getElementById("connectChannel").onclick = function(e){
+        var channelId = document.getElementById("channelId").value;
+        if(!channelId)return;
+        conn.connectChannel(channelId);
+        return false;
+      };
+    </script>
   </div>
 <% elsif user_signed_in? %>
   <% if @current_user_voice.present? %>
