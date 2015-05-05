@@ -3,7 +3,6 @@
     <h2>발언권 신청자</h2>
     <%= render @voices %>
     <script src="http://www.playrtc.com/sdk/js/1.0.6/playrtc.min.js"></script>
-    <%= link_to '발언권 철회', talk_concert_voices_path(@talk_concert), method: :delete, class: "btn btn-danger" %>
     <div>
       <input type="text" id="channelId" placeholder="ChannelId를 입력하세요." value="">
       <button id="connectChannel">채널 입장</button>
