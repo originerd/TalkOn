@@ -5,5 +5,9 @@
     This is the home page for Talk On service.
   </h2>
 
-  <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-lg btn-primary" %>
+  <% if user_signed_in? %>
+    <%= link_to "Find Talk concerts!", talk_concerts_path, class: "btn btn-lg btn-primary" %>
+  <% else %>
+    <%= link_to "Sign up now!", new_user_registration_path, class: "btn btn-lg btn-primary" %>
+  <% end %>
 </div>
