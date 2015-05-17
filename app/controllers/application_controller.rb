@@ -21,4 +21,17 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:name, :email, :password, :password_confirmation, :remember_me, :auth_token) }
     devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:name, :email, :password, :password_confirmation, :current_password) }
   end
+
+  def enrolled_user?
+    param = params[:id] || params[:talk_concert_id]
+    @talk_concert = TalkConcert.find(param)
+
+    @enrollment = @talk_concert.enrollments.find_by(user: current_user)
+
+    unless @enrollment.present?
+      flash[:danger] = "You didn't enroll in this talk concert"
+
+      redirect_to @talk_concert
+    end
+  end
 end

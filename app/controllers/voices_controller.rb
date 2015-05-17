@@ -1,5 +1,6 @@
 class VoicesController < ApplicationController
   before_action :authenticate_user!
+  before_action :enrolled_user?, only: [:create]
 
   def create
     @talk_concert = TalkConcert.find(params[:talk_concert_id])

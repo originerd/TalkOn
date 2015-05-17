@@ -1,5 +1,6 @@
 class TalkConcertsController < ApplicationController
   before_action :authenticate_user!, except: [ :index, :show ]
+  before_action :enrolled_user?, only: [:room]
 
   def index
     @talk_concerts = TalkConcert.paginate(page: params[:page])
